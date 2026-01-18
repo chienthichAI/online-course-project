@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, Lesson, Instructor, Learner, Question, Choice
+from .models import Course, Lesson, Instructor, Learner, Question, Choice, Submission
 
 class QuestionInline(admin.StackedInline):
     model = Question
