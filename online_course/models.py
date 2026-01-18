@@ -91,6 +91,14 @@ class Question(models.Model):
     def __str__(self):
         return "Question: " + self.content
 
+    def is_get_score(self, selected_ids):
+        all_answers = self.choice_set.filter(is_correct=True).count()
+        selected_correct = self.choice_set.filter(is_correct=True, id__in=selected_ids).count()
+        if all_answers == selected_correct and all_answers == len(selected_ids):
+            return True
+        else:
+            return False
+
 
 # Choice model
 class Choice(models.Model):
